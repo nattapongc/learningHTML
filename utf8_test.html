@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            margin: 1px;
+            background-color:aqua ;
+        }
+    </style>
+
+</head>
+<body>
+    <div id ="main">
+    </div>
+    <script>
+        var main = document.getElementById("main")
+        
+        for(let index = 0x0E01; index < 0x0E3A;index++)
+        {
+            var inner = index + ":    &#" + index + ";"
+            var newNode = document.createElement("p");
+            newNode.style.width = "70px";
+            newNode.style.float = "left";
+            newNode.style.borderWidth = "1px";
+            newNode.style.borderStyle = "dashed";
+            newNode.innerHTML = inner;
+            main.appendChild(newNode);
+        }
+
+
+        // for(let index = 0x4E00; index < 0x9FFF;index++)
+        // {
+        //     var inner = index + ":    &#" + index + ";"
+        //     var newNode = document.createElement("p");
+        //     newNode.style.width = "70px";
+        //     newNode.style.float = "left";
+        //     newNode.style.borderWidth = "1px";
+        //     newNode.style.borderStyle = "dashed";
+        //     newNode.innerHTML = inner;
+        //     main.appendChild(newNode);
+        // }
+    </script>
+</body>
+</html>
