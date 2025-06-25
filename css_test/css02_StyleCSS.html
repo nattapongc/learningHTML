@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- style use for set STD for every tag or class -->
+    <style>
+        div{
+            min-height: 100px;
+            background-color: rgba(0, 255, 70, 0.9);
+            /* seperate every 20px */
+            margin-top: 20px;
+        }
+        
+        /* set STD CSS for only header */
+        .header {
+            background-color: crimson;
+        }
+
+        /* #web_head {
+            color: white;
+        } */
+
+        .header > h1{
+            color: red;
+        }
+        .header > div > h1 {
+            color: violet;
+        }
+
+        .main_content h1 {
+            text-decoration-style: dashed;
+            text-decoration-line: line-through;
+        }
+
+        .first_p ~ p{
+            background-color: darkgray;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class = "header" style = "background-color: darkblue;">
+        <div>
+            <h1 id = "web_head"> จะว่าไปแล้วเชิงเทียนของเรามันก็สวยดีเหมือนกันนะ </h1>
+        </div>
+        <h1 id = "web_head"> จะว่าไปแล้วเชิงเทียนของเรามันก็สวยดีเหมือนกันนะ </h1>
+    </div>
+
+    <div class = "main_content">
+        <p>นอนที่ไหนก็ได้ แต่อย่านอนใกล้คนหลายใจ </p>
+        <p class = "first_p">เห็นแก้วแวววับที่จับจิต ใยไม่คิดอาจเอื่อมให้ถึงที่ </p>
+        <p>เมื่อไม่เอื้อมจะได้อย่างไรมี อันมณีหรือจะโลดมาถึงมือ </p>
+        <p>อันของสูงแม้ปองต้งอจิต ถ้าไม่คิดปันป่ายจะได้หรือ </p>
+        <h1> จะว่าไปแล้วเชิงเทียนของเรามันก็สวยดีเหมือนกันนะ </h1>
+    </div>
+
+    <div class = "form_data">
+        <p>ไม่เมาเราแล้วแต่เรายังเมารัก</p>
+        <p>สุดจะหักห้ามจิตคิดฉไหน</p>
+        <p>แม้เมาเหล้าเช้าสายก็หายไป</p>
+        <p>แต่เมาใจนี้ประจำทุกค่ำคืน</p>
+
+    </div>
+    
+    
+    <div class = "product"></div>
+    <div class = "footer"></div>
+
+
+
+</body>
+</html>

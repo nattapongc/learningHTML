@@ -27,6 +27,35 @@
         <label for="desc"></label>
         <textarea name ="description" id = "desc"></textarea>
         <input type="submit" value="OK" onclick = "alert('Hello')"/>
+
+        <br/><br/><br/>
+
+        <br/> button <input type = "button" value="hello" onclick="console.log('hello this is from hello btn')"></input>
+        <br/> checkbox <input type = "checkbox" name = "fruit" value = "banana"/> <label for = "">banana</label>
+        <br/> checkbox <input type = "checkbox" name = "fruit" value = "apple"/> <label for = "">apple</label>
+        <br/> checkbox <input type = "checkbox" name = "fruit" value = "orange"/> <label for = "">orange</label>
+        <br/> checkbox <input type = "checkbox" name = "fruit" value = "coconut"/> <label for = "">coconut</label>
+        
+        <br/> color <input type = "color" name = "color_main"/>
+        <br/> คุณเลือกสี <span id = "color_you_selected">NONE</span>
+        <br/> <input type = "button" onclick="console.log(document.forms[0]['color_main'].value)" value = "GET COLOR" style = "font-size: 1.5em;"></input>
+
+        <br/> date <input type = "date"/>
+        <br/> datetime-local <input type = "datetime-local"/>
+        <br/> email <input type = "email"/>
+        <br/> file <input type = "file"/>
+        
+        <br/> hidden <input name = "h" type = "hidden" value = "this_is_hidden"/>
+        <br/> <input type = "submit" value = "OK"></input>
+
+
+        <br/> image <input type = "image"/>
+        <br/> month <input type = "month"/>
+        <br/> number <input type = "number"/>
+        <br/> password <input type = "password"/>
+        <br/> <input type = "radio">
+        
+        
     </form>
 </body>
 </html>

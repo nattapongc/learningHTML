@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert-Programming-Tutor</title>
+    <link rel="stylesheet" href="fontawesome-free-6.7.2-web/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        /* 
+            "*" is every element 
+            When set box-sizing on * 
+            it's mean you will set grid inner
+        */
+        * {
+            box-sizing: border-box;
+        }
+
+        .menu {
+            background-color: darkcyan;
+            overflow: hidden;
+            position: sticky;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            /* height: 60px; */
+        }
+
+        .menu>ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .menu>ul>li {
+            float: left;
+        }
+
+        .menu>ul>li :hover {
+            background-color: darkgreen;
+        }
+
+        .menu>ul>li>a {
+            display: block;
+            padding: 10px;
+            color: mintcream;
+            text-decoration: none;
+        }
+
+        .menu>ul>li.menu_right {
+            float: right;
+            margin-right: 40px;
+        }
+
+        .hamburger_menu {
+            font-size: 20pt;
+            padding: 5px;
+            color: white;
+            text-decoration: none;
+            display: none;
+        }
+
+        .vertical_menu {
+            display: none;
+        }
+
+        .header {
+            background-color: lightgreen;
+            border: 1px solid lightgreen;
+        }
+
+        /* .header > h1 {
+            margin-top: 0;
+        } */
+
+        .content_mother {
+            background-color: lightgreen;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* responsive --> Media Query */
+        @media screen and (max-width: 500px) {
+            .content_mother {
+                flex-direction: column;
+            }
+
+            .hamburger_menu {
+                display: block;
+                padding-left: 20px;
+            }
+
+            .horizontal_menu {
+                display: none;
+            }
+
+            .vertical_menu>li {
+                float: none;
+                display: initial;
+            }
+
+            .menu>ul>li {
+                float: none;
+            }
+
+        }
+
+        .content {
+            flex-basis: 300px;
+            font-size: 40pt;
+            text-align: center;
+            color: white;
+            margin: 15px;
+        }
+
+        .content1 {
+            background-color: mediumorchid;
+            height: 300px;
+            flex: 1;
+            align-content: center;
+        }
+
+        .content2 {
+            background-color: green;
+            height: 300px;
+            flex: 1;
+            align-content: center;
+        }
+
+        .content3 {
+            background-color: blue;
+            height: 300px;
+            flex: 1;
+            align-content: center;
+        }
+
+        .lower_content {
+            background-color: tan;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: space-around;
+        }
+
+        .item {
+            margin: 10px;
+            background-color: tomato;
+            padding: 30px;
+            text-align: center;
+            color: white;
+            font-size: 50pt;
+            width: 150px;
+            height: 150px;
+        }
+
+        .lower_content2 {
+            background-color: orange;
+            height: 600px;
+            display: flex;
+        }
+
+        .item2 {
+            margin: 10px;
+            background-color: pink;
+            padding: 30px;
+            text-align: center;
+            color: white;
+            font-size: 50pt;
+            width: 150px;
+            height: 150px;
+            flex: 1;
+        }
+
+
+        .maps {
+            background-color: khaki;
+            height: 600px;
+        }
+
+        .footer {
+            background-color: royalblue;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <ul class="horizontal_menu">
+            <li><a href="#">หน้าแรก</a></li>
+            <li><a href="#">บ้านเดี่ยว</a></li>
+            <li><a href="#">คอนโด</a></li>
+            <li><a href="#">ขายบ้าน</a></li>
+            <li class="menu_right"><a href="#">Log In</a></li>
+        </ul>
+        <a href="#" onclick="openMenu()" class="hamburger_menu"><i class="fas fa-bars"></i></a>
+        <ul class="vertical_menu">
+            <li><a href="#">หน้าแรก</a></li>
+            <li><a href="#">บ้านเดี่ยว</a></li>
+            <li><a href="#">คอนโด</a></li>
+            <li><a href="#">ขายบ้าน</a></li>
+            <li><a href="#">Log In</a></li>
+        </ul>
+
+    </div>
+    <div class="header">
+        <h1>EPT Real Estate</h1>
+    </div>
+    <div class="content_mother">
+        <div class="content content1">1</div>
+        <div class="content content2">2</div>
+        <div class="content content3">3</div>
+    </div>
+    <div class="lower_content">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+
+        <div class="item">10</div>
+        <div class="item">11</div>
+        <div class="item">12</div>
+    </div>
+
+    <div class="lower_content2">
+        <div class="item2">11</div>
+        <div class="item2">12</div>
+
+    </div>
+    <div class="maps"></div>
+    <div class="footer"></div>
+    <div></div>
+
+    <script>
+        function openMenu() {
+            let menu = document.getElementsByClassName("vertical_menu")[0];
+            console.log(menu);
+            if (menu.style.display == "block") {
+                menu.style.display = "none"
+            }
+            else {
+                menu.style.display = "block"
+            }
+        }
+    </script>
+
+</body>
+
+</html>
