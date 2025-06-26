@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+        body {margin: 0px;}
+        
+        .main {
+            background-color: #aaa;
+            width: 100%;
+            height: 500px;
+            margin: 0px;
+        }    
+    </style>
+    
+
+</head>
+<body>
+    <div class = "main">
+        <div>
+            <button onclick = "start1()">เริ่ม 1</button>
+            <button onclick = "start2()">เริ่ม 2</button>
+            <button onclick = "start3()">เริ่ม 3</button>
+        </div>
+    </div>
+
+    <script>
+        let x = "ผอม";
+        // alert(x);
+        // นี้คือ comment
+
+        console.log("%c hello","font-size:25pt");
+
+        //----------------you can write function in different 3  ways.------------------
+        function start1() { //Function Declaration
+            console.log("this is message from start 1 Button!!!");
+        }
+
+        let start2 = function(){ //Function Expression
+            console.log("this is message from start 2 Button!!!")
+        };
+
+        let start3 = () => { //Arrow Function
+            console.log("this is message from start 3 Button!!!")
+            let div_child = document.createElement("div");
+            div_child.innerHTML = "hello";
+            div_child.style.fontSize = "2em";
+            div_child.style.backgroundColor = "#ff0000";
+            div_child.style.padding = "30px";
+
+            div_child.style.margin = "5px";
+            let x_main = document.getElementsByClassName("main")[0];
+            x_main.append(div_child)
+        }
+        //----------------you can write function in different 3 ways.------------------
+    </script>
+</body>
+</html>

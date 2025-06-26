@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>Test Google Maps </title>
+
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="module" src="./index.js"></script>
+</head>
+
+
+<body>
+
+    <h1>Hello, This is test Google Maps</h1>
+
+    <div id="map">
+        <gmp-map center="13.752934495868342, 100.53124476630992" zoom="15" map-id="Expert-Programming-Tutor"
+            style="height: 400px" ;>
+            <gmp-advanced-marker position="13.752934495868342, 100.53124476630992"
+                title="Expert-Programming-Tutor"></gmp-advanced-marker>
+
+        </gmp-map>
+    </div>
+    <!-- 
+      The `defer` attribute causes the script to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises. See
+      https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+      for more information.
+      -->
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+
+</body>
+
+</html>
