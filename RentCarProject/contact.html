@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+		/>
+		<style>
+
+            @font-face {
+                font-family: "roboto";
+                src: url("static/font/Roboto-Black.ttf");
+            }
+
+			body {
+				margin: 0px;
+				padding: 0px;
+                font-family: "roboto";
+			}
+
+			.menu {
+				background-color: black;
+				height: 50px;
+			}
+			.footer {
+				background-color: black;
+				height: 150px;
+			}
+
+			.content {
+				background-color: rgb(184, 226, 238);
+			}
+
+			.big_icon {
+				font-size: 2em;
+			}
+
+			.text_center {
+				text-align: center;
+			}
+
+			.row {
+				background-color: rgb(184, 226, 238);
+				width: 100%;
+				border: 1px solid rgb(184, 226, 238);
+				transition: all 0.5s ease;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+
+			.row > div {
+				color: white;
+				padding: 30px;
+				box-sizing: border-box;
+				font-size: 1.2em;
+				height: 400px;
+				width: 400px;
+				margin: 30px;
+				transition: all 0.5s ease;
+			}
+
+			.big_icon {
+				font-size: 6em;
+			}
+
+			.row > div > h2 {
+				text-align: center;
+			}
+
+			.row > .left > .left_overlay {
+				visibility: visible;
+				width: 100%;
+				height: 100%;
+				box-sizing: border-box;
+				transition: all 0.5s ease;
+				background-image: radial-gradient(
+					rgba(0, 0, 0, 0) 0%,
+					rgba(0, 0, 0, 0) 150%
+				);
+			}
+			.row > .left:hover > .left_overlay {
+				background-image: radial-gradient(
+					rgba(0, 0, 0, 0.1) 0%,
+					rgba(0, 0, 0, 1) 150%
+				);
+				visibility: visible;
+				transition: all 0.5s ease 0.5s;
+			}
+
+			.row > .left {
+				overflow: hidden;
+				padding: 0px;
+				padding: 0px;
+				background-image: url("static/images/Tank.jpg");
+				background-size: 150%;
+				background-position-x: -70px;
+				border-radius: 200px;
+				/* background-color: rgba(66, 111, 0, 1);
+                background-image: radial-gradient(rgba(66,111,0,1) 0%,rgba(0,0,0,1) 250%); */
+			}
+
+			.row > .right {
+				color: rgba(2, 80, 102, 1);
+			}
+
+			.row > .form {
+				background-color: darkslategray;
+				max-width: 860px;
+				width: 860px;
+                height: auto;
+			}
+
+            .row > .form > form > input[type="text"],input[type="email"],textarea
+            {
+                width: 100%;
+                font-size: 1.2em;
+                border-color: gray;
+                border-width: 3px;
+                border-radius: 0.3em;
+            }
+
+            .row > .form > form > input[type="text"]:focus,input[type="email"]:focus,textarea:focus
+            {
+                border-color: red;
+                border-width: 3px;
+                outline: none;
+            }
+
+            .row > .form > form > textarea {
+                height: 4.5em;
+            }
+            
+            .row > .form > form > input[type="submit"] {
+                margin-top: 20px;
+                font-size: 1.5em;
+                background-color: rgb(31, 7, 3);
+                color: rgba(255, 81,53,1);
+                padding: 20px;
+                border-style: solid;
+                border-width: 1px;
+                border-color: rgba(255, 81,53,1);
+            }
+
+            .row > .form > form > input[type="submit"]:hover {
+                background-color: rgba(66, 111, 0, 1);
+                color: #6EBA00;
+                border-color: #6EBA00;
+                transition: all .5s ease 0.1s;
+            }
+
+		</style>
+	</head>
+	<body>
+		<div class="menu"></div>
+		<div class="content">
+			<div class="row">
+				<div class="left">
+					<div class="left_overlay"></div>
+				</div>
+				<div class="right">
+					<h1>ติดต่อเรา</h1>
+					<p>
+						Lorem ipsum dolor sit amet consectetur, adipisicing
+						elit. Quos, tempore, pariatur facilis excepturi
+						accusantium asperiores dolorum nostrum, quod eos impedit
+						deleniti praesentium enim accusamus quas reiciendis
+						minima repellat fugit minus!
+					</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form">
+                    <h2>
+                        เชิญส่งข้อความหาทีมงานของเรา
+                    </h2>
+                    <form action="contact.php" method="get">
+                        <label>
+                            Name :
+                        </label>
+                        </br>
+                        <input type="text" name="input_name" id="input_name"/>
+                        </br>
+                        <label>
+                            Email :
+                        </label>
+                        </br>
+                        <input type="email" name="input_email" id="input_email"/>
+                        </br>
+                        <label>
+                            Phone :
+                        </label>
+                        </br>
+                        <input type="text" name="input_phone" id="input_phone"/>
+                        </br>
+                        <label>
+                            Message :
+                        </label>
+                        </br>
+                        <textarea name ="message"></textarea>
+                        <br/>
+                        <input type = "submit" value="submit" name = "submit_contactus">
+                    </form>
+                
+                </div>
+			</div>
+		</div>
+		<div class="footer"></div>
+	</body>
+</html>

@@ -1,0 +1,160 @@
+body {
+    padding : 0px;
+    margin: 0px;
+}
+
+.main {
+    background-color:  aquamarine;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top:0px;
+    bottom:0px;
+}
+
+.upper {
+    background-color: bisque;
+    height: auto;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+}
+
+.left {
+    background-color: darkgreen;
+    position: absolute;
+    height: calc(100vh - 40px);
+    width: 160px;
+    transition: all 1s ease 0s;
+    left:0px;
+}
+.right {
+    background-color: skyblue;
+    position: absolute;
+    height: calc(100vh - 40px);
+    width: auto;
+    left: 160px;
+    right: 0px;
+    transition: all 1s ease 0s;
+}
+
+iframe{
+    box-sizing: border-box;
+    border: 10px solid black;
+}
+
+
+
+.footer {
+    background-color: black;
+    color:white;
+    position:absolute;
+    bottom:0px;
+    height: 80px;
+    width: 100%;
+    text-align: center;
+    
+}
+
+.footer > div{
+    text-align: center;
+    transform: translate(0,50%);
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color:white;
+    padding: 3px 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: calc(100% - 10px);
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color : #874caf;
+}
+
+button:active {
+    background-color : #ff0000e8;
+}
+
+.hilight {
+    font-size: 2em;
+    color: darkmagenta;
+    font-weight: bold;
+    display: inline;
+}
+
+table,tr,td,th{
+    border-collapse: collapse;
+    border-bottom: 2px solid black;
+    height: 1.5em;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    font-size: 1.2em;
+    font-weight: 300;
+    height: 2.5em;
+    text-align: center;
+    background-color: darkorchid;
+    color: white;
+}
+
+td:hover{
+    background-color: yellow;
+}
+tr:nth-child(even){
+    background-color: darkgrey;
+}
+tr:hover{
+    background-color: white;
+    opacity:80%;
+}
+
+.menu_close {
+    left: -160px;
+    transition: all 1s ease 0s;
+}
+
+.menu_open {
+    left: 0px;
+    transition: all 1s ease 0s;
+}
+
+.openMenuSticky {
+    display: none;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: darkred;
+    opacity: 40%;
+    width : 160px;
+    height: auto;
+    text-align: center;
+    z-index: 10;
+}
+
+.openMenuSticky > .menu_hamburger:hover {
+    color: black;
+}
+
+
+.menu_hamburger {
+    color: white;
+}
+
+.menu_hamburger:hover {
+    color: red;
+}

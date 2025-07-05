@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        div{
+            width: 300px;
+        }
+
+        .red_box {
+            background-color: #a00;
+            color: aliceblue;
+            border : 5px solid black;
+            border-radius: 50px;
+            padding: 3px ;
+            margin:5px;
+            text-align: center;
+        }
+
+        .red_box:hover{
+            background-color: #ff00ff;
+        }
+
+        .red_box::after{
+            content: "x";
+        }
+
+        #menu2 {
+            background-color: #0000ff;
+            color: aliceblue;
+            border : 5px solid black;
+            border-radius: 50px;
+            padding: 3px ;
+            margin:5px;
+            text-align: center;
+        }
+
+        #menu3 {
+            background-color: #00ff00;
+            color: black;
+            border : 5px solid black;
+            border-radius: 50px;
+            padding: 3px ;
+            margin:5px;
+            text-align: center;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div class = "red_box">
+        Hello
+    </div>
+    <div class = "red_box">
+        Good Bye
+    </div>
+    <div class = "red_box">
+        Menu 1
+    </div>
+    <div id = "menu2">
+        Menu2
+    </div>
+    <div id = "menu3">
+        Menu3
+    </div>
+
+</body>
+</html>

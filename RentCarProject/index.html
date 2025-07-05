@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ยานพาหนะ</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        @font-face{
+            font-family: "roboto";
+            src: url("static/font/Roboto-Black.ttf");
+        }
+        body { 
+            padding: 0px;
+            margin: 0px; 
+            font-family: "roboto";
+        }
+
+        nav {
+            border: 1px solid black;
+            background-color: black;
+            color: white;
+            overflow: auto;
+        }
+
+        nav > ul {
+            list-style-type: none;
+            margin: 0px;
+            margin-right: 40px;
+            float: right;
+
+        }
+        nav > ul > li {
+            padding: 10px;
+            display: inline-block;
+        }
+        nav > ul > li:hover {
+            background-color: brown;
+        }
+
+        nav > ul > li > a{
+            color: white;
+            text-decoration: none;
+        }
+
+        .highlight {
+            color: orangered;
+        }
+
+        /* header start*/
+        header {
+            min-height: 600px;
+            
+            filter: grayscale(40%);
+            background-image: url("static/images/BlueBentley.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size:cover;
+
+        }
+
+        .rent_now {
+            background-color: rgba(0,0,0,0.8);
+            border: 1px solid rgba(0,0,0,0.2);
+            text-wrap: wrap;
+            text-align: center;
+            padding: 30px;
+            max-width: 550px;
+            color:white;
+            width: 80%;
+            left: 50%;
+            right: 50%;
+            transform: translate(-50%,50%);
+            position: absolute;
+            border-radius: 25px;
+            padding: 10px;
+        }
+
+        .rent_now > button {
+            background-color: green;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 25px;
+            box-shadow: 5px 5px 5px gray;
+            margin: 10px;
+        }
+
+        .rent_now > button:hover {
+            background-color: yellow;
+            color:darkblue;
+            box-shadow: 5px 5px 5px gray;
+        }
+        /* header end*/
+
+        /* company_history start */
+        .company_history {
+            display: flex;
+            width: 100%;
+            min-height: 300px;
+            overflow: hidden;
+        }
+
+        .company_history>div {
+            float: left;
+            width: 50%;
+            position: relative;
+        }
+
+        .company_history>.left{
+            background-color: darkcyan;
+            overflow: hidden;
+        }
+
+        .company_history>.left>img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .company_history>.right{
+            background-color: khaki;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .company_history>.left>.overlay {
+            background-color: darkgoldenrod;
+            position: absolute;
+            top:0px;
+            left:0px;
+            right: 0px;
+            bottom: 0px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: 1s ease;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .company_history>.left:hover>.overlay {
+            opacity: 1;
+            display: inline-flex;
+        }
+
+        .company_history .txt{
+            text-wrap: wrap;
+            max-width: 350px;
+            align-self: center;
+            text-align: center;
+            font-size: 1.2em;
+            color:white;
+            font-style: oblique;
+        }
+
+        .company_history button {
+            background-color: green;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 25px;
+            box-shadow: 5px 5px 5px gray;
+        }
+
+        .company_history button:hover {
+            background-color: yellow;
+            color:darkblue;
+            box-shadow: 5px 5px 5px gray;
+        }
+        /* company_history end */
+
+        /* feature_start*/
+        .feature {
+            height: 320px;
+            display: flex;
+            align-items: flex;
+            justify-content: center;
+            
+        }
+
+        .feature > .feature_item {
+            position: flex;
+            background-color: rgb(100, 100, 80);
+            display: flex;
+            text-align: center;
+            align-items: center;
+            color: white;
+
+        }
+        .feature > .feature_item_darker {
+            width: 60%;
+            background-color: rgb(200, 50, 50);
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media screen and (max-width:600px){
+            body {
+                display: block;
+                transition: all 1s ease 1s;
+            }
+
+            .feature {
+                display: block;
+                height: auto;
+            }
+
+            .feature > .feature_item {
+                height: auto;
+                width: 100%;
+            }
+
+            .feature > .feature_item_darker {
+                height: auto;
+                width: 100%;
+            }
+
+            .company_history {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .company_history > .left {
+                width: 100%;
+                height: 50%;
+            }
+
+            .company_history > .right {
+                width: 100%;
+            }
+
+            footer {
+                display: block;
+                position: static;
+                border: 1px solid black;
+                background-color: black;
+                color: white;
+                text-align: center;
+                padding-top: 10px;
+                font-size: 0.8em;
+            }
+        }
+
+        /* feature_end */
+        
+        /* about_start */
+        .about {
+            display: block;
+            position: relative;
+            min-height: 500px;
+            background-repeat: no-repeat;
+            background-size: 100% 600px;
+            background-position: center;
+            -webkit-filter: grayscale(80%);
+            -moz-filter: grayscale(80%);
+            -ms-filter: grayscale(80%);
+            filter: grayscale(80%);
+            border: 1px solid black;
+            transition: all ease .3s;
+            background-image: url("static/images/helicopter.jpg");
+        }
+
+        .about:hover {
+            -webkit-filter: grayscale(0%);
+            -moz-filter: grayscale(0%);
+            -ms-filter: grayscale(0%);
+            filter: grayscale(0%);
+            transition: all ease .3s;
+            background-size: 120% 720px;
+            color: white;
+        }
+
+        .about > div {
+            text-align: center;
+            height: 80px;
+            overflow: hidden;
+            margin: 5px;
+            min-width: 180px;
+            width: 50%;
+            border: 1px solid yellowgreen;
+            border-radius: 40px;
+            padding: 14px;
+            box-sizing: border-box;
+
+            background: linear-gradient(to left,yellowgreen 33%, red 66%);
+            background-size: 300% 100%;
+            background-position: right bottom;
+            cursor: pointer;
+            transition: all ease .3s;
+        }
+
+        .about > div:hover {
+            background-position: left bottom;
+        }
+
+        .about > div > h4 {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .about > div > p {
+            padding: 3px;
+            margin: 3px;
+        }
+
+        .about > .step_01 {
+            margin-top: 30px;
+            margin-left: 5%;
+        }
+
+        .about > .step_02 {
+            margin-top: 10px;
+            margin-left: 15%;
+        }
+
+        .about > .step_03 {
+            margin-top: 10px;
+            margin-left: 25%;
+        }
+        .about > .step_04 {
+            margin-top: 10px;
+            margin-left: 35%;
+        }
+        .about > .step_05 {
+            margin-top: 10px;
+            margin-left: 45%;
+        }
+
+        /* about_end */
+
+        /* footer_start */
+        footer {
+            display: block;
+            position: relative;
+            border: 1px solid black;
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding-top: 10px;
+            font-size: 0.8em;
+        }
+
+
+        /* footer_end */
+
+
+        
+    </style>
+
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="about_us.html">ABOUT</a></li>
+            <li><a href="contact.html">CONTACT US</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="rent_now">
+            <h1>บริการ<span class = "highlight">เช่ารถ</span>สำหรับนักผจญภัย</h1>
+            <p><span class = "highlight">Lorem ipsum </span>dolor sit amet consectetur.</p>
+            <button>เช่าเลย!!</button>
+        </div>
+    </header> 
+
+    <section class = "company_history">
+        <div class="left">
+            <img src="static/images/BusinessStairWalk.jpg" alt="company_history"></img>
+            <div class ="overlay">
+                <div class="txt">
+                    <h1>Hello EPT</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim corporis eaque beatae nostrum aut nemo magnam magni repudiandae, molestias blanditiis!</p>
+                    <button>Contact Sales Manager</button>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <p>
+                <i class="fa-solid fa-building" style="font-size:48px;"></i>
+            </p>
+            <h1><span class = "highlight">ประวัติ</span>บริษัทของเรา</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias numquam quisquam tenetur debitis, aut necessitatibus autem accusantium soluta saepe ut fugit laborum. Perferendis, eius iusto voluptates odio explicabo aliquid distinctio!
+            </p>
+
+        </div>
+    </section>
+
+    <section class = "feature">
+        <div class = "feature_item">
+            <div>
+                <p><i class = "fas fa-dollar-sign" style="font-size: 48px;"></i></p>
+                <h2><span class = "highlight">หรูหรา</span>ในราคาจับต้องได้</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio, delectus?</p>
+            </div>
+        </div>
+        <div class = "feature_item_darker">
+            <div>
+                <p><i class = "fas fa-hands-helping" style="font-size: 48px;"></i></p>
+                <h2>มีเจ้าหน้าที่คอยช่วยเหลือ</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio, delectus?</p>
+            </div>
+        </div>
+        <div class = "feature_item">
+            <div>
+                <p><i class = "fas fa-dollar-sign" style="font-size: 48px;"></i></p>
+                <h2><span class = "highlight">หรูหรา</span>ในราคาจับต้องได้</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio, delectus?</p>
+            </div>
+        </div>
+    </section>
+    <section class = "about">
+        <div class ="step_01">
+            <h4>Step 1</h4>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class ="step_02">
+            <h4>Step 2</h4>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class ="step_03">
+            <h4>Step 3</h4>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class ="step_04">
+            <h4>Step 4</h4>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class ="step_05">
+            <h4>Step 5</h4>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+    </section>
+    <section class = "contact"></section>
+
+    <footer>
+
+        <h3>All Right reserved @2025 Expert-Programming-Tutor</h3>
+        <p><i class="fa-solid fa-phone"></i> 0853507540</p>
+        <p><i class="fa-solid fa-envelope-square"></i> ntprintf@gmail.com</p>
+        <p>
+            <i class="fa-solid fa-cc-apple-pay"></i>
+            <i class="fa-solid fa-cc-amazon-pay"></i>
+            <i class="fa-solid fa-cc-visa"></i>
+        </p>
+        
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+		/>
+		<style>
+			body {
+				margin: 0px;
+				padding: 0px;
+			}
+
+			.menu {
+				background-color: black;
+				height: 50px;
+			}
+			.footer {
+				background-color: black;
+				height: 150px;
+			}
+
+			.content {
+				background-color: #2789a5;
+				height: 550px;
+				overflow: hidden;
+			}
+
+			.big_icon {
+				font-size: 48pt;
+			}
+
+			.text_center {
+				text-align: center;
+			}
+
+			.row {
+				background-color: #2789a5;
+				height: 450px;
+				width: 120%;
+				border: 1px solid #2789a5;
+				overflow: hidden;
+				transform: translate(-10vw, 10vh) rotate(-5deg);
+			}
+
+			.row > div {
+				background-color: rgba(255, 81, 53, 1);
+				color: white;
+				padding: 30px;
+				padding-top: 230px;
+				box-sizing: border-box;
+				font-size: 1.2em;
+				height: 700px;
+				width: 30vw;
+				margin-left: 2.5vw;
+				display: inline-block;
+				transition: all 0.5s ease;
+			}
+
+			.big_icon {
+				font-size: 6em;
+			}
+
+			.row > div:hover {
+				background-color: red;
+				transition: all 1s ease;
+			}
+
+			.row > div > h2 {
+				text-align: center;
+			}
+
+			.row > .column_1 {
+				background-color: rgba(66, 111, 0, 1);
+				transform: translateX(10vw) translateY(-200px) rotate(5deg);
+			}
+			.row > .column_2 {
+				background-color: rgba(255, 81, 53, 1);
+				transform: translateX(10vw) translateY(-200px) rotate(5deg);
+			}
+			.row > .column_3 {
+				background-color: rgba(1, 59, 75, 1);
+				transform: translateX(10vw) translateY(-200px) rotate(5deg);
+			}
+
+			@media screen and (max-width: 900px) {
+				.row > div {
+					font-size: 1em;
+				}
+				.big_icon {
+					font-size: 3.5em;
+				}
+			}
+
+			@media screen and (max-width: 700px) {
+				.row > div {
+					font-size: 1em;
+				}
+				.big_icon {
+					font-size: 2.5em;
+				}
+			}
+
+			@media screen and (max-width: 600px) {
+				.row > div {
+					font-size: 0.9em;
+				}
+				.big_icon {
+					font-size: 2em;
+				}
+			}
+
+			@media screen and (max-width: 500px) {
+				body {
+					height: 100vh;
+					display: block;
+				}
+
+				.content {
+					height: auto;
+					max-height: none;
+				}
+
+				.big_icon {
+					font-size: 2.5em;
+				}
+
+				.row {
+					padding: 0;
+					width: 100%;
+					height: auto;
+					transform: translate(0vw, 0vh) rotate(0deg);
+					display: block;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+				}
+
+				.row > div {
+					padding: 10px;
+					background-color: rgba(255, 81, 53, 1);
+					color: white;
+					box-sizing: border-box;
+					font-size: 1em;
+					height: auto;
+					width: 90vw;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+				}
+
+				h2 {
+					margin: 5px;
+				}
+
+				.row > .column_1 {
+					text-align: center;
+					margin: 20px;
+					padding: 0;
+					background-color: rgba(66, 111, 0, 1);
+					transform: translateX(0) translateY(0) rotate(0);
+				}
+				.row > .column_2 {
+					text-align: center;
+					margin: 20px;
+					padding: 0;
+					background-color: rgba(255, 81, 53, 1);
+					transform: translateX(0) translateY(0) rotate(0);
+				}
+				.row > .column_3 {
+					text-align: center;
+					margin: 20px;
+					padding: 0;
+					background-color: rgba(1, 59, 75, 1);
+					transform: translateX(0) translateY(0) rotate(0);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="menu"></div>
+		<div class="content">
+			<div class="row">
+				<div class="column_1">
+					<p class="text_center">
+						<i class="fas fa-shipping-fast big_icon"></i>
+					</p>
+					<h2>เช่าได้รวดเร็ว</h2>
+					<p>
+						Lorem ipsum dolor sit, amet consectetur adipisicing
+						elit. Tempora soluta ea, sed vel ab labore nisi, impedit
+						modi fugiat temporibus dolorum harum. Illum eum quod,
+						ipsam nostrum ducimus commodi sint.
+					</p>
+				</div>
+				<div class="column_2">
+					<p class="text_center">
+						<i class="fas fa-hands-wash big_icon"></i>
+					</p>
+					<h2>บริการด้วยมือ</h2>
+					<p>
+						Lorem ipsum dolor sit, amet consectetur adipisicing
+						elit. Tempora soluta ea, sed vel ab labore nisi, impedit
+						modi fugiat temporibus dolorum harum. Illum eum quod,
+						ipsam nostrum ducimus commodi sint.
+					</p>
+				</div>
+				<div class="column_3">
+					<p class="text_center">
+						<i class="fas fa-fighter-jet big_icon"></i>
+					</p>
+					<h2>ถูกใจทุกระดับ</h2>
+					<p>
+						Lorem ipsum dolor sit, amet consectetur adipisicing
+						elit. Tempora soluta ea, sed vel ab labore nisi, impedit
+						modi fugiat temporibus dolorum harum. Illum eum quod,
+						ipsam nostrum ducimus commodi sint.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="footer"></div>
+	</body>
+</html>

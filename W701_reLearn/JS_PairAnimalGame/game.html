@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<style>
+			.box {
+				font-size: 18pt;
+				padding: 5px;
+				margin: 5px;
+				background-color: pink;
+			}
+
+			.main_container {
+				width: 720px;
+				height: 720px;
+				background-color: orange;
+			}
+
+			.container {
+				margin: 2px;
+				width: 100px;
+				height: 100px;
+				background-color: gray;
+				padding: 5px;
+				display: inline-block;
+				position: relative;
+			}
+
+			.box1 {
+				background-color: orangered;
+				width: 100px;
+				height: 100px;
+				display: inline-block;
+				position: absolute;
+			}
+
+			.box2 {
+				background-color: blue;
+				width: 100px;
+				height: 100px;
+				display: inline-block;
+				position: absolute;
+				transition: 0.5s;
+			}
+
+			.clickCount {
+				font-size: 25pt;
+				text-align: center;
+				background-color: orangered;
+				color: aliceblue;
+			}
+		</style>
+	</head>
+
+	<body onload="onload()">
+		<div class="clickCount" id="clickCount">
+			Please Search same cat in below.
+		</div>
+		<div class="main_container" id="main_container"></div>
+
+		<script>
+			let images = Array();
+
+			function shuffle(array) {
+				for (let i = 0; i < array.length; i++) {
+					let r = Math.floor(Math.random() * (array.length - i));
+					let temp = array[i];
+					array[i] = array[r];
+					array[r] = temp;
+				}
+				return array;
+			}
+
+			function onload() {
+				for (let i = 1; i <= 18; i++) {
+					images.push(i + ".jpg");
+					images.push(i + ".jpg");
+				}
+
+				for (let i = 1; i <= 18; i++) {
+					shuffle(images);
+				}
+
+				let main = document.getElementById("main_container");
+				for (let i = 0; i <= 35; i++) {
+					main.innerHTML += tile(i, images[i]);
+				}
+			}
+
+			function tile(id, image) {
+				let x = `
+            <div class = "container">
+                <div class = "box1" id = "{{{id}}}_orange" onclick = "action('close','{{{id}}}')">
+                    <img src = "{{{image}}}" width = "100%" height = "100%"/>
+                </div>
+                <div class = "box2" id = "{{{id}}}_blue" onclick = "action('open','{{{id}}}')"></div>
+            </div>
+        `;
+
+				x = x.replaceAll("{{{id}}}", id);
+				x = x.replaceAll("{{{image}}}", image);
+				return x;
+			}
+
+			class GameState {
+				constructor(params) {
+					this.nowopen = new Array();
+					this.open_count;
+					this.clickCount = 0;
+				}
+
+				open_new(id) {
+					this.nowopen.push(id);
+					this.open_count++;
+					this.clickCount++;
+					clickCount(this.clickCount);
+					if (this.nowopen.length >= 3) {
+						while (this.nowopen.length > 1) {
+							action("close", this.nowopen[0], false);
+						}
+					}
+					for (let i = 0; i < this.nowopen.length - 1; i++) {
+						for (let j = i+1; j < this.nowopen.length; j++) {
+              if(images[this.nowopen[i]] == images[this.nowopen[j]])
+              {
+                action("finish", this.nowopen[i],false);
+                action("finish", this.nowopen[j],false);
+
+                this.nowopen.splice(j, 1);
+                this.nowopen.splice(i, 1);
+                this.open_count--;
+                this.open_count--;
+              }
+            }
+					}
+				}
+
+				close_one(id) {
+					let index = this.nowopen.indexOf(id);
+					if (index != -1) {
+						this.nowopen.splice(index, 1);
+					}
+					this.open_count--;
+					clickCount(this.clickCount);
+				}
+			}
+      
+			let gameState = new GameState();
+
+			function clickCount(count) {
+				let count_text = document.getElementById("clickCount");
+				count_text.innerHTML = "" + count;
+			}
+
+			function action(what, who, isPlaySound = true) {
+				if (what == "open") {
+					let blue = document.getElementById(who + "_blue");
+					blue.style.height = "0px";
+					gameState.open_new(who);
+					if (isPlaySound) {
+						var audio = new Audio("open_sound.mp3");
+						audio.play();
+					}
+				} else if (what == "close") {
+					let blue = document.getElementById(who + "_blue");
+					blue.style.height = "100px";
+					gameState.close_one(who);
+					if (isPlaySound) {
+						var audio = new Audio("open_sound.mp3");
+						audio.play();
+					}
+				} else if ((what == "finish")) {
+					let blue = document.getElementById(who + "_blue");
+					blue.style.height = "0px";
+					blue.style.visibility = "hidden";
+					blue.setAttribute("finish", "true");
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            width: 100px;
+            height: 100px;
+            position: fixed;
+            left: 100px;
+            top:20px;
+            background-color: red;
+        }
+
+        .text {
+            color: seagreen;
+        }
+
+        .center {
+            width: 100px;
+            height: 100px;
+            position: fixed;
+            top:50%;
+            right:50%;
+            transform: translate(50%,-50%);
+            background-color: violet;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main" id="obj1"></div>
+    <h1 class="text" id="obj2">Hello Expert-Programming-Tutor.com</h1>
+    <div class="center" id="obj3"></div>
+
+
+
+    <script>
+
+        let spring_movement = function(t) {
+            let theta = Math.atan2(1,1.0/3.0);
+            let R = Math.sqrt(10.0/9.0);
+            return (-1) * Math.exp((-1) * t) * R * Math.sin(theta + 3 * t);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            let div_main = document.getElementById("obj1");
+            let obj1 = {
+                obj: div_main,
+                t: 0,
+                x: 0
+            };
+
+            let text_main = document.getElementById("obj2");
+            let obj2 = {
+                obj: text_main,
+                t: 0,
+                x: 0
+            };
+
+            let center = document.getElementById("obj3");
+            let obj3 = {
+                obj: center,
+                t: 0,
+                x: 0
+            };
+
+            let timer = setInterval(() => {
+                obj1.t += 0.01;
+                obj1.x = spring_movement(obj1.t) * 500 + 500;
+                obj1.obj.style.left = obj1.x + "px";
+
+                obj2.t += 0.01;
+                obj2.x = spring_movement(obj2.t) * 3 + 3;
+                obj2.obj.style.fontSize = obj2.x + "em";
+
+                obj3.t += 0.01;
+                obj3.x = spring_movement(obj3.t) * 300 + 400;
+                obj3.obj.style.width = obj3.x + "px";
+                obj3.obj.style.height = obj3.x + "px";
+            },10);
+        }, false);
+    </script>
+</body>
+</html>

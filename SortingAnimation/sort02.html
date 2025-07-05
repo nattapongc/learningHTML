@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sorting Project</title>
+		<style>
+			.mainDisplay {
+				background-color: khaki;
+				min-height: 100px;
+				padding: 30px;
+			}
+
+			.mainDisplay2 {
+				background-color: violet;
+				min-height: 100px;
+				padding: 30px;
+			}
+
+			.line {
+				padding: 3px;
+				background-color: darkgreen;
+				overflow: visible;
+				margin: 10px;
+				display: block;
+			}
+
+			.item {
+				margin: 5px;
+				min-width: 30px;
+				padding: 3px;
+				background-color: gold;
+				border: 2px solid black;
+				display: inline-block;
+				text-align: center;
+			}
+
+			.item2 {
+				margin: 5px;
+				min-width: 30px;
+				padding: 3px;
+				background-color: darkmagenta;
+				border: 2px solid black;
+				position: relative;
+				display: inline-block;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mainDisplay" id="mainDisplay"></div>
+
+		<div class="mainDisplay2" id="mainDisplay2"></div>
+
+		<!----------------------JS Script ------------------------->
+		<script>
+
+			function getOffset(el) {
+				var _x = 0;
+				var _y = 0;
+				while (el && !isNaN(el.offsetLeft) && !isNaN(el.offsetTop)) {
+					_x += el.offsetLeft - el.scrollLeft;
+					_y += el.offsetTop - el.scrollTop;
+					el = el.offsetParent;
+				}
+				return {
+					top: _y, left: _x
+				};
+			}
+
+			function createArray(length) {
+				let data = [];
+				for (let i = 0; i < length; i++) {
+					data.push(-1);
+				}
+				return data;
+			}
+
+			function initData(data) {
+				for (let i = 0; i < data.length; i++) {
+					data[i] = i + 1;
+				}
+			}
+
+			function randomArray(data) {
+				for (let i = 0; i < data.length * 100; i++) {
+					let a = Math.floor(Math.random() * data.length);
+					let temp = data[a];
+					data[a] = data[0];
+					data[0] = temp;
+				}
+			}
+
+			function BubbleSort(data) {
+				for (let i = 0; i < data.length; i++) {
+					for (let j = 0; j < data.length - i - 1; j++) {
+						if (data[j] > data[j + 1]) {
+							
+                            mainDisplay.addBoxColor(data, j, j + 1, -1, -1);
+							let temp = data[j];
+							data[j] = data[j + 1];
+							data[j + 1] = temp;
+                            
+						}
+                        else
+                        {
+                            mainDisplay.addBoxColor(data, -1, -1, j, j + 1);
+                        }
+						
+					}
+				}
+			}
+
+            function SelectionSort(data) {
+                
+                for (let i = 0; i < data.length; i++) {
+                    let max = Number.NEGATIVE_INFINITY;
+                    let max_index = -1;
+                    
+					for (let j = 0; j < data.length - i; j++) {
+                        mainDisplay.addBoxColor(data, -1, -1, j, max_index);
+						if (data[j] > max) {
+                            
+							max = data[j];
+                            max_index = j;
+						}
+					}
+                    mainDisplay.addBoxColor(data, max_index, data.length - i - 1, -1, -1);
+                    let temp = data[max_index];
+                    data[max_index] = data[data.length - i - 1];
+                    data[data.length - i - 1] = temp;
+				}
+            }
+
+			function InsertionSort (data) {
+				for (let i = 0; i < data.length; i++) {
+					let now = data[i];
+					let j;
+					mainDisplay.addBoxColor(data,-1,-1,i,-1);
+					for (j = i-1; j >= 0; j--) {
+						if(data[j] > now){
+							mainDisplay.addBoxColor(data,j,j+1,-1,-1);
+							data[j+1] = data[j];
+						}
+						else {
+							break;
+						}
+					}
+					data[j+1] = now;
+				}	
+			}
+
+			function MergeSort (array) {
+				let length = array.length;
+				if(length <= 1) {return;} // base case
+
+				let middle = Math.floor(length/2);
+				let leftArray = [middle];
+				let rightArray = [length - middle];
+				mainDisplay.addBoxColor(array,0,middle-1,middle,length-1);
+				let i = 0; //for left array
+				let j = 0; //for right array
+
+				for(i; i < length;i++)
+				{
+					if(i < middle) {
+						leftArray[i] = array[i];
+					} else {
+						rightArray[j] = array[i];
+						j++;
+					}
+				}
+				MergeSort(leftArray);
+				MergeSort(rightArray);
+				merge(leftArray,rightArray,array)
+			}
+
+			function merge(leftArray, rightArray, array) {
+				let leftSize = Math.floor(array.length/2);
+				let rightSize = array.length - leftSize;
+				let i = 0; 
+				let l = 0; 
+				let r = 0;
+
+				while(l < leftSize && r < rightSize) {
+					if(leftArray[l] < rightArray[r]) {
+						array[i] = leftArray[l];
+						i++;
+						l++;
+					} else {
+						array[i] = rightArray[r];
+						i++;
+						r++;
+					}
+					
+				}
+
+				while(l < leftSize) {
+					array[i] = leftArray[l];
+					i++;
+					l++;
+				}
+
+				while(r < rightSize) {
+					array[i] = rightArray[r];
+					i++;
+					r++;
+				}
+				mainDisplay.addBoxColor(array,-1,-1,-1,-1);
+			}
+
+			class Point{
+				constructor(x,y) {
+					if(x == undefined) {
+						this.x = 0;
+					} else {
+						this.x = x;
+					}
+					if(y == undefined) {
+						this.y = 0;
+					} else {
+						this.y = y;
+					}
+				}
+				get PosX() {
+					return this.x;
+				}
+				get PosY() {
+					return this.y;
+				}
+
+				set PosX(x) {
+					this.x = x;
+				}
+				set PosY(y) {
+					this.y = y;
+				}
+			}
+
+			class SpringBlink {
+				constructor(obj) {
+					this.obj = obj;
+				}
+
+				spring(t) {
+					return (-1) * Math.exp((-0.1) * t) * Math.cos(10 * t);
+				}
+
+				doBlink(finish_callback) {
+					
+					let time = 0;
+					let timer = setInterval(() => {
+						time += 0.01;
+						let tt = this.spring(time) * 255;
+
+						if(tt < 0) tt = 0;
+						if(tt > 255) tt = 255;
+
+						this.obj.style.backgroundColor = "rgb("+ tt +",0,0)";
+
+						if(time >= 1) {
+							this.obj.style.backgroundColor = "rgb("+ 255 +",0,0)";
+
+							finish_callback();
+						}
+					}, 10);	
+				}
+			}
+
+			class SpringMotion {
+				constructor(obj, P0, P1, P2, P3) {
+					this.obj = obj;
+					this.P0 = P0;
+					this.P1 = P1;
+					this.P2 = P2;
+					this.P3 = P3;
+				}
+
+				spring(t) {
+					let theta = Math.atan2(1,1.0/3.0);
+					let R = Math.sqrt(10.0/9);
+					return (-1) * Math.exp((-10) * t) * Math.cos(10 * t);
+				}
+
+				getPos(t) {
+						let x = Math.pow(1-t , 3) * Math.pow(t,0) * this.P0.PosX +
+							3 * Math.pow(1-t , 2) * Math.pow(t,1) * this.P1.PosX +
+							3 * Math.pow(1-t , 1) * Math.pow(t,2) * this.P2.PosX +
+								Math.pow(1-t , 0) * Math.pow(t,3) * this.P3.PosX ;
+					
+						let y = Math.pow(1-t , 3) * Math.pow(t,0) * this.P0.PosY +
+							3 * Math.pow(1-t , 2) * Math.pow(t,1) * this.P1.PosY +
+							3 * Math.pow(1-t , 1) * Math.pow(t,2) * this.P2.PosY +
+								Math.pow(1-t , 0) * Math.pow(t,3) * this.P3.PosY;
+					let now = new Point(x,y);
+					return now;
+				}
+
+				doMove(finish_callback) {
+					
+					let time = 0;
+					let timer = setInterval(() => {
+						time += 0.01;
+						let tt = this.spring(time);
+						let pos = this.getPos(1 + tt);
+	
+						this.obj.style.left = pos.PosX + "px";
+						this.obj.style.top = pos.PosY + "px";
+
+						if(time >= 1) {
+							this.obj.style.left = this.P3.PosX + "px";
+							this.obj.style.top = this.P3.PosY + "px";
+							clearInterval(timer);
+							finish_callback();
+						}
+					}, 10);	
+				}
+			}
+
+			let mainDiv = document.getElementById("mainDisplay");
+			let mainDiv2 = document.getElementById("mainDisplay2");
+			let mainDisplay = {
+				display: mainDiv,
+				display2: mainDiv2,
+				state: [],
+				highlight: [],
+				highlight2: [],
+				addBoxColor: (data, a, b, c, d) => {
+					let data_clone = data.slice();
+					mainDisplay.state.push(data_clone);
+					mainDisplay.highlight.push([a, b]);
+					mainDisplay.highlight2.push([c, d]);
+				},
+				showState: () => {
+					for (let i = 0; i < mainDisplay.state.length; i++) {
+						let line = document.createElement("div");
+						line.className = "line";
+                        let item = document.createElement("div");
+                        item.classList.add("item");
+                        item.style.minWidth = "120px";
+                        if(i == 0) {
+                            item.innerHTML = "Start Array :";
+                            item.style.backgroundColor = "black";
+                            item.style.color = "white";
+                        } else if(i == mainDisplay.state.length-1) {
+                            item.innerHTML = "Finish Sorting :";
+                            item.style.backgroundColor = "black";
+                            item.style.color = "white";
+                        } else {
+                            item.innerHTML = "" + i + ":";
+                            item.style.backgroundColor = "violet";
+                        }
+
+                        line.appendChild(item);
+						for (let j = 0; j < mainDisplay.state[i].length; j++) {
+							let item = document.createElement("div");
+							item.classList.add("item");
+							item.innerHTML = "" + mainDisplay.state[i][j];
+
+							if (mainDisplay.highlight[i][0] == j) {
+								item.style.backgroundColor = "blue";
+							}
+							if (mainDisplay.highlight[i][1] == j) {
+								item.style.backgroundColor = "blue";
+							}
+							if (mainDisplay.highlight2[i][0] == j) {
+								item.style.backgroundColor = "pink";
+							}
+							if (mainDisplay.highlight2[i][1] == j) {
+								item.style.backgroundColor = "pink";
+							}
+							line.appendChild(item);
+						}
+						mainDisplay.display2.appendChild(line);
+					}
+				},
+				
+				showStateAnimation: () => {
+					let line = document.createElement("div");
+					line.classList.add("line");
+					mainDisplay.display2.appendChild(line);
+
+					let i = 0;
+
+					function stepStatus() {
+						// Create Header Loop i
+						if(i >= mainDisplay.state.length){
+							return;
+						}
+						line.innerHTML="";
+						let head = document.createElement("div");
+						head.classList.add("item");
+						head.innerHTML = ">" + i + ":";
+						head.style.minWidth = "70px";
+						head.style.backgroundColor = "violet";
+						line.appendChild(head);
+						// Create Header Loop i
+
+						let obj1 = null, 
+							obj2 = null,
+							obj3 = null,
+							obj4 = null;
+
+						//Create element
+						for (let j = 0; j < mainDisplay.state[i].length; j++) {
+							let inner = document.createElement("div");
+							inner.classList.add("item2");
+							inner.innerHTML = ""+mainDisplay.state[i][j];
+							inner.style.minWidth = "30px";
+							inner.style.backgroundColor = "violet";
+							line.appendChild(inner);
+
+							if(mainDisplay.highlight[i][0] == j) {
+								obj1 = inner;
+								inner.style.backgroundColor = "blue";
+							}
+							if(mainDisplay.highlight[i][1] == j) {
+								obj2 = inner;
+								inner.style.backgroundColor = "blue";
+							}
+							if(mainDisplay.highlight2[i][0] == j) {
+								obj3 = inner;
+								inner.style.backgroundColor = "red";
+							}
+							if(mainDisplay.highlight2[i][1] == j) {
+								obj4 = inner;
+								inner.style.backgroundColor = "red";
+							}
+						}
+						//End Create element
+
+						function blink(callback) {
+							if(obj3 != null || obj4 != null) {
+								let blink3 = null;
+								let blink4 = null;
+								
+								let isFinish = false;
+								let FinishBlink = function() {
+									if(!isFinish){
+										isFinish = true;
+										callback();
+									}
+								}
+
+								if(obj3 != null) {
+									let blink3 = new SpringBlink(obj3);
+									blink3.doBlink(FinishBlink)
+								}
+								if(obj4 != null) {
+									let blink4 = new SpringBlink(obj4);
+									blink4.doBlink(FinishBlink)
+								}
+							}
+							else {
+								callback();
+							}
+						}
+
+						blink(() => {
+							if(obj1 != null || obj2 != null) {
+								let offset_obj1 = getOffset(obj1);
+								let offset_obj2 = getOffset(obj2);
+
+								let targetMoveLeft = offset_obj1.left - offset_obj2.left;
+								let targetMoveRight = offset_obj2.left - offset_obj1.left;
+
+								offset_obj1.left -= offset_obj1.left;
+								offset_obj1.top -= offset_obj1.top;
+								offset_obj2.left -= offset_obj2.left;
+								offset_obj2.top -= offset_obj2.top;
+
+								let P0 = new Point(offset_obj1.left,offset_obj1.top);
+								let P1 = new Point(offset_obj1.left,offset_obj1.top - 50);
+								let P2 = new Point(targetMoveRight,offset_obj1.top - 50);
+								let P3 = new Point(targetMoveRight,offset_obj2.top);
+
+								let P0_2 = new Point(offset_obj2.left,offset_obj1.top);
+								let P1_2 = new Point(offset_obj2.left,offset_obj1.top + 50);
+								let P2_2 = new Point(targetMoveLeft,offset_obj2.top + 50);
+								let P3_2 = new Point(targetMoveLeft,offset_obj2.top);
+								
+								let xSpringMotion1 = new SpringMotion(obj1, P0, P1, P2,P3);
+								xSpringMotion1.doMove(() => {});
+
+								let xSpringMotion2 = new SpringMotion(obj2, P0_2, P1_2, P2_2,P3_2);
+								xSpringMotion2.doMove(() => {
+									i++;
+									stepStatus();
+								});
+							} else {
+								setTimeout(()=>{
+									i++;
+								stepStatus();
+								},10);
+								
+							}
+						});
+					}
+					stepStatus();
+
+					// let item2 = document.createElement("div");
+					// item2.classList.add("item2");
+					// item2.innerHTML = "3";
+					// item2.style.minWidth = "20px";
+					// item2.style.backgroundColor = "violet";
+					// line.appendChild(item2);
+
+					// let item3 = document.createElement("div");
+					// item3.classList.add("item2");
+					// item3.innerHTML = "5";
+					// item3.style.minWidth = "20px";
+					// item3.style.backgroundColor = "violet";
+					// line.appendChild(item3);
+
+					// mainDisplay.display2.appendChild(line);
+
+					
+				}			
+			};
+
+			document.addEventListener(
+				"DOMContentLoaded",
+				function () {
+					let data = createArray(10);
+					initData(data);
+					randomArray(data);
+					mainDisplay.addBoxColor(data, -1, -1, -1, -1);
+					BubbleSort(data);
+                    //SelectionSort(data);
+					// InsertionSort(data);
+					//MergeSort(data);
+					mainDisplay.addBoxColor(data, -1, -1, -1, -1);
+					// mainDisplay.showState();
+
+					mainDisplay.showStateAnimation();
+				},
+				false
+			);
+		</script>
+	</body>
+</html>

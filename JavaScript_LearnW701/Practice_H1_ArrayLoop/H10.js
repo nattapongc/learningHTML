@@ -1,0 +1,20 @@
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+let x = [];
+
+let func_n = function (n) {
+  x.push(parseInt(n));
+
+  if (x.length == 10) {
+    let min = Number.POSITIVE_INFINITY;
+    min = Math.min.apply(null,x);
+    console.log(min);
+    rl.close();
+  }
+};
+
+rl.on("line", func_n);

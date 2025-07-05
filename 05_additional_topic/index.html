@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Additional Topics</title>
+		<link rel="stylesheet" href="static/style.css" />
+        <link rel="stylesheet" href="fontawesome-free-6.7.2-web/css/all.min.css">
+	</head>
+
+	<body>
+		<div class="main">
+			<div class="upper">
+				<div class="left" id="menu" status="open">
+                    <div class="openMenuSticky" id="openMenuSticky">
+                        <p style="text-align: center;">
+                            <a class="menu_hamburger" href="#" onclick="toggle_menu()"><i class="fas fa-bars" style="font-size: 52px;"></i></a>
+					    </p>
+                    </div>
+                    
+
+                    <p style="text-align: center;">
+                        <a class="menu_hamburger" href="#" onclick="toggle_menu()"><i class="fas fa-bars" style="font-size: 52px;"></i></a>
+					</p>
+                    
+                    <button onclick="onclickSpan()">SPAN</button>
+                    <button onclick="onclickTable()">TABLE</button>
+                    <button onclick="onclickYoutubeChanel()">Chanel</button>
+				</div>
+				<div class="right" id="right_pane">
+                    <iframe id="main_iframe" src="" width="100%" height="100%">
+                    </iframe>
+                </div>
+			</div>
+
+			<div class="footer">
+				<div>
+					Expert-Programming-Tutor.com
+					เรียนเขียนโปรแกรมคอมพิวเตอร์วันนี้เพื่อโลกยุคอนาคต
+				</div>
+			</div>
+		</div>
+	</body>
+
+    <script>
+        function toggle_menu() {
+            let MyMenu = document.getElementById('menu');
+            let openMenuSticky = document.getElementById('openMenuSticky');
+            let right_pane = document.getElementById('right_pane');
+            let menustatus = MyMenu.getAttribute("status");
+            if(menustatus === "open") {
+                MyMenu.classList.remove("menu_open");
+                MyMenu.classList.add("menu_close");
+                MyMenu.setAttribute("status","close");
+                openMenuSticky.style.display = "block";
+                right_pane.style.left="0px";
+                right_pane.style.right="0px";
+            } else {
+                MyMenu.classList.add("menu_open");
+                MyMenu.classList.remove("menu_close");
+                MyMenu.setAttribute("status","open");
+                openMenuSticky.style.display = "none";
+                right_pane.style.left="160px";
+                right_pane.style.right="0px";
+            }
+        }
+
+        function onclickSpan() {
+            let myIFrame = document.getElementById('main_iframe');
+            myIFrame.setAttribute("src","span.html");
+        }
+
+        function onclickTable() {
+            let Myiframe = document.getElementById('main_iframe');
+            Myiframe.setAttribute("src","table.html");
+        }
+
+        function onclickYoutubeChanel() {
+            let Myiframe = document.getElementById('main_iframe');
+            Myiframe.setAttribute("src","youtube.html");
+        }
+    </script>
+</html>

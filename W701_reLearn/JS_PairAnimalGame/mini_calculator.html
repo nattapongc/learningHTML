@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        font-size: 20pt;
+        line-height: 1.5rem;
+      }
+      button {
+        font-size: 45pt;
+        line-height: 2.5rem;
+      }
+      div {
+        padding: 10px;
+      }
+      #result {
+        font-size: 50pt;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      a
+      <input type="text" id="a" />
+    </div>
+
+    <div>
+      b
+      <input type="text" id="b" />
+    </div>
+
+    <div>
+      <button onclick="add()">+</button>
+      <button onclick="minus()">-</button>
+      <button onclick="mul()">*</button>
+      <button onclick="div()">/</button>
+    </div>
+    <div id="result"></div>
+
+    <script>
+      function add() {
+        let a_box = document.getElementById("a");
+        let b_box = document.getElementById("b");
+        let a = parseFloat(a_box.value);
+        let b = parseFloat(b_box.value);
+        let c = a + b;
+
+        let result_text = document.getElementById("result");
+        result_text.innerHTML = c;
+      }
+
+      function minus() {
+        let a_box = document.getElementById("a");
+        let b_box = document.getElementById("b");
+        let a = parseFloat(a_box.value);
+        let b = parseFloat(b_box.value);
+        let c = a - b;
+
+        let result_text = document.getElementById("result");
+        result_text.innerHTML = c;
+      }
+
+      function mul() {
+        let a_box = document.getElementById("a");
+        let b_box = document.getElementById("b");
+        let a = parseFloat(a_box.value);
+        let b = parseFloat(b_box.value);
+        let c = a * b;
+
+        let result_text = document.getElementById("result");
+        result_text.innerHTML = c;
+      }
+
+      function div() {
+        let a_box = document.getElementById("a");
+        let b_box = document.getElementById("b");
+        let a = parseFloat(a_box.value);
+        let b = parseFloat(b_box.value);
+        let c = a / b;
+
+        let result_text = document.getElementById("result");
+        result_text.innerHTML = c;
+      }
+    </script>
+  </body>
+</html>
