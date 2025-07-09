@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>EPT Real Estate</title>
+
+		<script
+			src="https://code.jquery.com/jquery-3.7.1.js"
+			integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+			crossorigin="anonymous"
+		></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.js"></script>
+
+		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+			body {
+				padding: 0px;
+				margin: 0px;
+			}
+
+			ul {
+				margin: 0px;
+				padding: 0px;
+				list-style-type: none;
+			}
+
+			li {
+				display: inline-block;
+				padding-top: 15px;
+				padding-bottom: 15px;
+			}
+
+			li > a {
+				font-family: Roboto;
+				font-weight: 900;
+				text-decoration: none;
+				color: rgb(255, 221, 202);
+				padding: auto;
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+
+			li:hover > a {
+				color: rgb(45, 45, 68);
+				text-shadow: 1px 1px 5px gold;
+			}
+
+			li:hover {
+				background-color: rgb(199, 118, 29);
+			}
+
+			.menu {
+				background-color: rgb(168, 131, 77);
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+
+			.align_right_menu {
+				float: right;
+			}
+
+			/* Dropdown start */
+			.dropdown_menu {
+				width: auto;
+                z-index: 100;
+			}
+
+			.dropdown_menu:hover .dropdown_content {
+				display: block;
+			}
+
+			.dropdown_content {
+				display: none;
+				position: absolute;
+				margin-top: 15px;
+				background-color: rgb(168, 131, 77);
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+					0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                z-index: 100;
+			}
+
+			.dropdown_content ul li {
+				padding: 0;
+				display: flex;
+				color: rgb(255, 221, 202);
+				align-items: center;
+				justify-content: center;
+			}
+
+			.dropdown_content ul li a {
+				width: 100%;
+				padding: 15px;
+				color: rgb(255, 221, 202);
+			}
+
+			.dropdown_content ul li:hover a {
+				color: black;
+			}
+			/* Dropdown end */
+			.main {
+				width: 80%;
+				margin-left: auto;
+				margin-right: auto;
+				background-color: rgb(154 , 161, 171, 0.5);
+				text-align: center;
+				font-family: Roboto;
+				opacity: 0;
+				padding: 10px;
+			}
+
+			.container01 {
+				width: 100%;
+				height: 100%;
+				background-image: url("BackgroudHouse.jpg");
+			}
+
+			.container02 {
+				width: 100%;
+				height: 1000px;
+				background-color: lightgreen;
+			}
+
+			.main2 {
+				width: 500px;
+				height: 100px;
+				margin-left: auto;
+				margin-right: auto;
+				background-color: green;
+				opacity: 0;
+			}
+
+			.search_box {
+				padding: 20px;
+                margin-top:30;
+				border: #333 solid;
+				border-radius: 25px;
+				background-color: rgba(0, 0, 0, 0.5);
+			}
+
+			.search_box form input[type="text"] {
+				height: 40px;
+				border: 0px;
+				padding-top: 0px;
+				padding-bottom: 0px;
+				border-radius: 10px 0px 0px 10px;
+			}
+
+			.search_box form select {
+				height: 40px;
+			}
+
+			.search_box form input[type="submit"] {
+				height: 40px;
+				border-radius: 0px 10px 10px 0px;
+			}
+
+            .main h1 {
+                color: white;
+                text-shadow: 2px 2px black;
+            }
+		</style>
+	</head>
+	<body>
+		<div class="menu">
+			<ul>
+				<li><a href="#">HOME</a></li>
+				<li class="dropdown_menu">
+					<a href="#">BUY</a>
+					<div class="dropdown_content">
+						<ul>
+							<li><a href="#">บ้าน</a></li>
+							<li><a href="#">คอนโด</a></li>
+							<li><a href="#">เชิงพาณิชย์</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="#">SELL</a></li>
+				<li><a href="#">SEARCH</a></li>
+				<li><a href="#">ABOUT US</a></li>
+				<li class="align_right_menu"><a href="#">LOGIN</a></li>
+			</ul>
+		</div>
+
+		<!--------------------- End of Menu ------------------------------>
+		<div class="container01">
+			<div class="main">
+				<h1>ซื้อ ขาย อสังหา ในประเทศไทย</h1>
+				<b>เราช่วยให้คุณหาบ้านและที่ดินที่ถูกใจคุณ</b>
+				<div class="search_box">
+					<form action="">
+						<input type="text" name="keyword" id="" />
+						<select name="property_type" id="">
+							<option value="">บ้าน</option>
+							<option value="">ที่ดิน</option>
+							<option value="">เชิงพาณิชย์</option>
+						</select>
+						<input type="submit" value="Search" />
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="container02">
+			<div class="main2"></div>
+		</div>
+
+		<script>
+			anime({
+				targets: ".main",
+				translateY: 0,
+				opacity: [0, 1],
+				rotate: "2turn",
+				backgroundColor: "hotpink",
+				duration: 800,
+				delay: 800,
+			});
+
+			$(document).ready(function () {
+
+				var menu_height = $(".menu").height();
+				var windows_height = $(window).height();
+				var image_height = windows_height - menu_height;
+				$(".container01").height(image_height);
+
+				$(window).resize(function() {
+						var menu_height = $(".menu").height();
+						var windows_height = $(window).height();
+						var image_height = windows_height - menu_height;
+						$(".container01").height(image_height);
+				});
+
+                
+
+				var animationForMain2 = function () {
+					if ($(".main2").attr("animation_finish") == 1) {
+					} else {
+						$(".main2").attr("animation_finish", 1);
+
+						var timeline = anime
+							.timeline({
+								easing: "easeOutElastic(5,5)",
+								duration: 800,
+							})
+							.add({
+								targets: ".main2",
+								translateY: 250,
+								opacity: [0, 1],
+								rotate: "1turn",
+								backgroundColor: "#F00",
+							});
+
+						animationForMain2.finished.then(function () {});
+					}
+				};
+
+				$(window).scroll(function () {
+					var hT = $(".main2").offset().top,
+						hH = $(".main2").outerHeight(),
+						wH = $(window).height(),
+						wS = $(this).scrollTop();
+					if (wS > hT + hH - wH) {
+						console.log("H1 on the view");
+						animationForMain2();
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

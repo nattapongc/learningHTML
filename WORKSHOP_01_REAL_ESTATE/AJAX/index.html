@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<script
+			src="https://code.jquery.com/jquery-3.7.1.js"
+			integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+			crossorigin="anonymous"
+		></script>
+
+        <style>
+            table,th,td {
+                border: 1px solid black;
+            }
+        </style>
+	</head>
+	
+    <body>
+		<button onclick="loadData()">Load</button>
+		<div class="main"></div>
+
+		<script>
+			function loadData() {
+				$.getJSON("http://expert-programming-tutor.com/Downloads/w701/property_detail.php?id=2", function(data) {
+                    var items = [];
+                    $.each(data,function(key,val) {
+                        items.push("<tr id='"+key+"'>"+ 
+                            "<td>" + key + "</td>" +
+                            "<td>" + val + "</td>" +"</tr>");
+                    });
+                   
+                    $("<table/>", {
+                        "class" : "my-new-list",
+                        html: items.join("\r\n")
+                    }).appendTo($(".main"));
+                });
+
+			}
+		</script>
+	</body>
+</html>
