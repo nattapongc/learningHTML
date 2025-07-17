@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pie02</title>
+
+    <style>
+        .pie_chart {
+            width: 500px;
+            height: 500px;
+            background: 
+                radial-gradient(circle closest-side, transparent 50%, white 0),
+                conic-gradient(
+                    red 0, red 37%,
+                    pink 0, hsl(310,80%,46%) 61%,
+                    #3da861 0,#0cbb72 72%,
+                    #2b0b9e 0,#2b0b9e 80%,
+                    #949e0b 0,#4d430e 86%,
+                    #4d43ff 0 , #4d43ff 100%
+                );
+            outline: 1px solid black;
+            position: relative;
+        }
+
+        .pie_chart h2{
+            position: absolute;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .pie_chart figcaption {
+            position: absolute;
+            bottom: 0em;
+            right: 0em;
+            width: 100px;
+            font-size: smaller;
+            text-align: right;
+            outline: 1px solid #555555;
+        }
+
+        .pie_chart .smallBox {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        .pie_chart .cite {
+            font-size: smaller;
+            position: absolute;
+            bottom: 0em;
+            left: 0em;
+            margin: 10px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="pie_chart">
+        <h2>Most popular programming language</h2>
+        <figcaption>
+            C++ <span class="smallBox" style="background-color: red;"></span><br/>
+            Python <span class="smallBox" style="background-color: pink;"></span><br/>
+            PHP <span class="smallBox" style="background-color: #3da861;"></span><br/>
+            JavaScript <span class="smallBox" style="background-color: #2b0b9e;"></span><br/>
+            JAVA <span class="smallBox" style="background-color: #949e0b;"></span><br/>
+            C# <span class="smallBox" style="background-color: #4d43ff;"></span><br/>
+        </figcaption>
+        <div class="cite">EPT POLL 2022</div>
+    </div>
+    
+</body>
+</html>

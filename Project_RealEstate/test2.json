@@ -1,0 +1,17 @@
+[
+	{
+		"id": 1,
+		"real_estate_name": "ที่ดินเปล่า ถมแล้ว",
+		"LOCATION": "บางพลี อยุธยา",
+		"property_type": "land",
+		"SALE_TERMS": "FREEHOLD",
+		"SALE_PRICE": 5000000,
+		"RENT_PRICE": 30000,
+		"BEDROOMS": null,
+		"UNIT_SIZE": null,
+		"LAND_AREA": 2000,
+		"image_01": "https://expert-programming-tutor.com/Downloads/w701/property/land1/l1_1.jpg"
+	}
+]
+
+

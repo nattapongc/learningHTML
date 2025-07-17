@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .bar_graph {
+            width: 700px;
+            height: 500px;
+            background-color: wheat;
+            padding: 30px;
+        }
+        .container {
+            width: 50px;
+            height: 100%;
+            margin: 10px;
+            background-color: #aaaaaa;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .bar {
+            width: 50px;
+            height: 0px;
+            margin: 0px;
+            
+            background-color: #ff5555;
+            border-radius: 10px;
+            
+        }
+
+        .bar div {
+            padding-right: 1rem;
+            text-align: right;
+            font-size: large;
+            position: relative;
+            top:40px;
+            rotate: 90deg;
+        }
+
+        .CPP {
+            height: 80%;
+            background: linear-gradient(to top,red,yellow);
+            position: relative;
+            top: 20%;
+        }
+        .CS {
+            height: 72%;
+            background: linear-gradient(to top,aqua,yellow);
+            position: relative;
+            top: 28%;
+        }
+        .VB {
+            height: 68%;
+            background: linear-gradient(to top,blue,yellow);
+            position: relative;
+            top: 32%;
+        }
+        .JAVA {
+            height: 100%;
+            background: linear-gradient(to top,green,yellow);
+            position: relative;
+            top: 0%;
+        }
+        .PYTHON {
+            height: 23%;
+            background: linear-gradient(to top,purple,yellow);
+            position: relative;
+            top: 77%;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="bar_graph">
+        <div class="container">
+            <div class="bar CPP"><div>C++</div></div>
+        </div>
+        
+        <div class="container">
+            <div class="bar CS"><div>C#</div></div>
+        </div>
+        
+        <div class="container">
+            <div class="bar VB"><div>VB.NET</div></div>
+        </div>
+
+        <div class="container">
+            <div class="bar JAVA"><div>JAVA</div></div>
+        </div>
+
+        <div class="container">
+            <div class="bar PYTHON"><div>Python</div></div>
+        </div>
+
+
+    </div>
+    
+</body>
+</html>

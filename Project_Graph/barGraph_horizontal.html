@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .bar_graph {
+            width: 700px;
+            background-color: wheat;
+            padding: 30px;
+            border-radius: 20px;
+        }
+        .container {
+            width: 500px;
+            height: 20px;
+            margin: 10px;
+            background-color: #aaaaaa;
+            border-radius: 15px;
+        }
+
+        .bar {
+            width: 0px;
+            height: 20px;
+            margin: 0px;
+            
+            background-color: #ff5555;
+            border-radius: 15px;
+            
+        }
+
+        .bar div {
+            padding-right: 1rem;
+            text-align: right;
+            font-size: large;
+            position: relative;
+            top: 50%;
+            transform: translate(0px,-50%);
+        }
+
+        .CPP {
+            width: 80%;
+            background: linear-gradient(to right,red,yellow) ;
+        }
+        .CS {
+            width: 72%;
+            background: linear-gradient(to right,aqua,yellow)
+        }
+        .VB {
+            width: 68%;
+            background: linear-gradient(to right,blue,yellow)
+        }
+        .JAVA {
+            width: 100%;
+            background: linear-gradient(to right,green,yellow)
+        }
+        .PYTHON {
+            width: 23%;
+            background: linear-gradient(to right,purple,yellow)
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="bar_graph">
+        <div class="container">
+            <div class="bar CPP"><div>C++</div></div>
+        </div>
+        
+        <div class="container">
+            <div class="bar CS"><div>C#</div></div>
+        </div>
+        
+        <div class="container">
+            <div class="bar VB"><div>VB.NET</div></div>
+        </div>
+
+        <div class="container">
+            <div class="bar JAVA"><div>JAVA</div></div>
+        </div>
+
+        <div class="container">
+            <div class="bar PYTHON"><div>Python</div></div>
+        </div>
+
+
+    </div>
+    
+</body>
+</html>
